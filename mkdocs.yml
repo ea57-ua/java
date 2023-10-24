@@ -1,5 +1,6 @@
 site_name: Apuntes sobre Java
-site_url: https://ea57-ua.github.io/
+site_url: https://ea57-ua.github.io/java
+repo_url: https://github.com/ea57-ua/java
 use_directory_urls: false
 
 nav:
