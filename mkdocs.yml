@@ -4,6 +4,7 @@ site_name: Apuntes sobre Java
 use_directory_urls: false
 
 nav:
+- 'Indice': 'index.md'
 - 'Excepciones': 'java/excepciones.md'
 
 theme:
