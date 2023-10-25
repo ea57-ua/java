@@ -7,6 +7,7 @@
 - [Tipos de excepciones](#tipos-de-excepciones)
     - [Excepciones comprobadas o checked exceptions](#excepciones-comprobadas-o-checked-exceptions)
     - [Excepciones no comprobadas o unchecked exceptions o `Runtime exceptions`](#excepciones-no-comprobadas-o-unchecked-exceptions-o-runtime-exceptions)
+- [Excepciones más comunes](#excepciones-más-comunes)
 - [Manejo de excepciones](#manejo-de-excepciones)
     - [Bloque try-catch](#bloque-try-catch)
     - [Lanazamiento de excepciones](#lanazamiento-de-excepciones)
@@ -43,6 +44,25 @@ Ejemplos:
 - ArithmeticException
 
 ![Tipos de excepciones](https://miro.medium.com/v2/resize:fit:729/1*jd1wo9joMCehuDqAdZ5m6A.png)
+
+## Excepciones más comunes
+### Excepciones comprobadas
+| **Excepción**| **Descripción** |
+| --- | --- |
+| `ClassNotFoundException` | Indice que una clase no se ha encontrado. |
+|`NoSuchMethodException`|Indica que el método utilizado no existe|
+|`FileNotFoundException`|Indica que el fichero no encontrado|
+|`ParseException`|Error analizando un string|
+
+
+### Excepciones no comprobadas
+| **Excepción**| **Descripción** |
+| --- | --- |
+| `NullPointerException` | Indica que se ha intentado acceder a un objeto que no existe. |
+| `ArrayIndexOutOfBoundsException` | Indica que se ha intentado acceder a un elemento de un array que no existe. |
+| `IllegalArgumentException` | Sirve para indicar que un método ha recibido parametros incorrectos. |
+|`StringIndexOutOfBoundsException`|Ocurre cuando se intenta acceder a una posición de un String que no existe|
+
 
 ## Manejo de excepciones
 
