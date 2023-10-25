@@ -8,16 +8,20 @@ nav:
 - 'Excepciones': 'java/excepciones.md'
 
 theme:
-    language: es
-    name: 'material'
-    palette:
-        primary: 'Teal'
-        accent: 'Teal'
-    font:
-        text: 'Ubuntu' 
-#       text: 'Roboto'
-        code: 'Roboto Mono' 
-    logo: 'images/java.png'
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
 
 # Ponemos como idioma de búsqueda el inglés
 # para conseguir que busque correctamente
