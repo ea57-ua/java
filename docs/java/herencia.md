@@ -9,6 +9,9 @@
     - [**Herencia multinivel o multilevel inheritance**](#herencia-multinivel-o-multilevel-inheritance)
     - [**Herencia jerárquica o hierarchical inheritance**](#herencia-jerárquica-o-hierarchical-inheritance)
     - [**Herencia múltiple o multiple inheritance**](#herencia-múltiple-o-multiple-inheritance)
+- [**Herencia en Java**](#herencia-en-java)
+    - [**Reglas de herencia en Java**](#reglas-de-herencia-en-java)
+- [**Casting de objetos**](#casting-de-objetos)
 
 ## Que es la herencia ?
 La **herencia** es un concepto fundamental en la **programación orientada a objetos** que 
