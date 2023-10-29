@@ -159,6 +159,59 @@ public class Main {
     }
 }
 ```
+### Sobreescritura de métodos
+La **sobreescritura de métodos** es una característica de la programación orientada a objetos que nos permite cambiar la implementación de un método en la clase hija que ya existe en la clase padre. La **sobreescritura de métodos** se usa para lograr el **polimorfismo**.
+
+La clase hija sobreescribe o redefine el método de la clase padre. La clase hija puede sobreescribir un método de la clase padre si el método de la clase padre es `public` o `protected`. No se puede sobreescribir un método de la clase padre si el método de la clase padre es `private`.
+Es buena práctica usar la anotación `@Override` para indicar que el método está sobrescrito.
+
+```java
+class Animal {
+  void speak() {
+    System.out.println("El animal habla");
+  }
+}
+
+class Cat extends Animal {
+  @Override
+  void speak() {
+    System.out.println("El gato maúlla");
+  }
+}
+```
+
+### `this` y `super`
+La palabra clave `this` se usa para hacer referencia a la instancia actual de la clase. La palabra clave `super` se usa para hacer referencia a la instancia de la clase padre. 
+
+```java
+class Parent {
+  int value;
+
+  Parent(int value) {
+    this.value = value;
+  }
+
+  void display() {
+    System.out.println("Valor del padre: " + value);
+  }
+}
+
+class Child extends Parent {
+  int value;
+
+  Child(int parentValue, int childValue) {
+    super(parentValue);
+    this.value = childValue;
+  }
+
+  void display() {
+    System.out.println("Valor del hijo: " + value);
+    super.display(); // método display del adre
+  }
+}
+``` 
+
+Con `super()` podemos llamar al constructor de la clase padre desde el constructor de la clase hija.
 
 ## Casting de objetos
 ![Casting de objetos](https://media.geeksforgeeks.org/wp-content/uploads/20210119153952/Downcasting.jpg)
