@@ -217,8 +217,18 @@ Con `super()` podemos llamar al constructor de la clase padre desde el construct
 ![Casting de objetos](https://media.geeksforgeeks.org/wp-content/uploads/20210119153952/Downcasting.jpg)
 
 El casting de objetos es la conversión de un tipo de objeto a otro. En Java, el casting de objetos se puede dividir en dos tipos:
-- **Upcasting**: convertir un objeto de una subclase a un objeto de la superclase.
-- **Downcasting**: convertir un objeto de una superclase a un objeto de la subclase. Provoca una excepción `ClassCastException` si no se usa `instanceof`.
+- **Upcasting**: convertir un objeto de una subclase a un objeto de la superclase. Se puede hacer de forma implícita o explícita.
+```java
+Parent p = new Child(); 
+```
+En el ejemplo anterior `p` es una referencia de la clase padre que apunta a un objeto de la clase hija. La referencia `p` puede acceder a los métodos y atributos de la clase padre y **solamente los métodos sobrescritos de la clase hija**.
+
+
+- **Downcasting**: convertir un objeto de una superclase a un objeto de la subclase. No puede ser implícito. Provoca una excepción `ClassCastException` si no se usa `instanceof`.
+```java
+Child c = (Child) p;
+```
+En el código anterior `p` es una referencia a la clase padre que apunta a un objeto de la clase hija. Estamos convirtiendo el objeto de la clase padre en un objeto de la clase hija. La referencia `c` puede acceder a todos los métodos y atributos de la clase padre y de la clase hija.
 
 ```java
 class Parent {
