@@ -7,6 +7,7 @@ nav:
 - 'Indice': 'index.md'
 - 'Excepciones': 'java/excepciones.md'
 - 'Herencia': 'java/herencia.md'
+- 'Clases abstractas': 'java/clases_abstractas.md'
 
 theme:
   name: material
