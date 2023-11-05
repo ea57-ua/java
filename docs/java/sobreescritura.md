@@ -5,6 +5,7 @@
 - [Sobreescritura de métodos](#sobreescritura-de-métodos)
 - [Ejemplo](#ejemplo)
 - [Reglas para la sobrescritura de métodos](#reglas-para-la-sobrescritura-de-métodos)
+- [Sobrescritura VS Sobrecarga](#sobrescritura-vs-sobrecarga)
 
 
 ## Sobreescritura de métodos
