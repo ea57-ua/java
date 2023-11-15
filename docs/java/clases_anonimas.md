@@ -2,13 +2,18 @@
 ##### Autor: Erik Avagyan
 
 ## Contenido
+- [Que son las clases anónimas ?](#que-son-las-clases-anónimas-)
+- [Ejemplos](#ejemplo)
+    - [Ejemplo con clase abstracta](#ejemplo-con-clase-abstracta)
+    - [Ejemplo con interfaz](#ejemplo-con-interfaz)
+- [Reglas](#reglas)
 
 ## Que son las clases anónimas ?
 Las clases anónimas en Java son clases que no tienen nombre. Se utilizan cuando necesitamos crear una clase que se extienda de una clase o implemente una interfaz, pero que no necesitamos usar en ningún otro lugar. Las clases anónimas se implementan en el lugar donde se necesitan.
 
 Se puede crear una clase anónima que extienda una clase o implemente una interfaz, en los dos casos la clase anónima debe implementar los métodos de la interfaz o de la clase abstracta.
 
-## Ejemplo
+## Ejemplos
 
 ### Ejemplo con clase abstracta
 ```java
