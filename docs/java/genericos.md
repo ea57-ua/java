@@ -9,6 +9,10 @@
 - [Interfaces genéricas](#interfaces-genéricas)
 - [Métodos genéricos](#métodos-genéricos)
 - [Restricciones de tipo genérico](#restricciones-de-tipo-genérico)
+    - [Extends](#extends)
+    - [Super](#super)
+    - [Multiple bounds](#multiple-bounds)
+    - [Wildcards o comodines](#wildcards-o-comodines)
 
 
 ## Que son los genericos?
