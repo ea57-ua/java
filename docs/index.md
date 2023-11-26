@@ -8,3 +8,5 @@
 - [Covarianza](java/covarianza.md)
 - [Interfaces](java/interfaces.md)
 - [Clases anónimas](java/clases_anonimas.md)
+- [Genericidad](java/genericos.md)
+- [Reflexión](java/reflexion.md)
