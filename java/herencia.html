@@ -1,0 +1,1058 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="excepciones.html">
+      
+      
+        <link rel="next" href="clases_abstractas.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Herencia - Apuntes sobre Java</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#herencia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Apuntes sobre Java" class="md-header__button md-logo" aria-label="Apuntes sobre Java" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Apuntes sobre Java
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Herencia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Apuntes sobre Java" class="md-nav__button md-logo" aria-label="Apuntes sobre Java" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Apuntes sobre Java
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="excepciones.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Excepciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Herencia
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="herencia.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Herencia
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contenido" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contenido
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Que es la herencia ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Que es la herencia ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-usar-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que usar herencia ?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de herencia
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de herencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herencia-simple-o-single-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia simple o single inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herencia-multinivel-o-multilevel-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia multinivel o multilevel inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herencia-jerarquica-o-hierarchical-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia jerárquica o hierarchical inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herencia-multiple-o-multiple-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia múltiple o multiple inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herencia-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia en Java
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herencia en Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-herencia-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reglas de herencia en Java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sobreescritura-de-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sobreescritura de métodos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#this-y-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      this y super
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casting-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casting de objetos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clases_abstractas.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clases abstractas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sobreescritura.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobreescritura de métodos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="covarianza.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covarianza
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="interfaces.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interfaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clases_anonimas.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clases anónimas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="genericos.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genericidad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reflexion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reflexión
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contenido" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contenido
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Que es la herencia ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Que es la herencia ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-usar-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que usar herencia ?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de herencia
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de herencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herencia-simple-o-single-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia simple o single inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herencia-multinivel-o-multilevel-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia multinivel o multilevel inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herencia-jerarquica-o-hierarchical-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia jerárquica o hierarchical inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herencia-multiple-o-multiple-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia múltiple o multiple inheritance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herencia-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herencia en Java
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herencia en Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-herencia-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reglas de herencia en Java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sobreescritura-de-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sobreescritura de métodos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#this-y-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      this y super
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casting-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casting de objetos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="herencia">Herencia<a class="headerlink" href="#herencia" title="Permanent link">&para;</a></h1>
+<h5 id="autor-erik-avagyan">Autor: Erik Avagyan<a class="headerlink" href="#autor-erik-avagyan" title="Permanent link">&para;</a></h5>
+<h2 id="contenido">Contenido<a class="headerlink" href="#contenido" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#que-es-la-herencia"><strong>Que es la herencia ?</strong></a><ul>
+<li><a href="#por-que-usar-herencia"><strong>Por que usar herencia ?</strong></a></li>
+</ul>
+</li>
+<li><a href="#tipos-de-herencia"><strong>Tipos de herencia</strong></a><ul>
+<li><a href="#herencia-simple-o-single-inheritance"><strong>Herencia simple o single inheritance</strong></a></li>
+<li><a href="#herencia-multinivel-o-multilevel-inheritance"><strong>Herencia multinivel o multilevel inheritance</strong></a></li>
+<li><a href="#herencia-jerárquica-o-hierarchical-inheritance"><strong>Herencia jerárquica o hierarchical inheritance</strong></a></li>
+<li><a href="#herencia-múltiple-o-multiple-inheritance"><strong>Herencia múltiple o multiple inheritance</strong></a></li>
+</ul>
+</li>
+<li><a href="#herencia-en-java"><strong>Herencia en Java</strong></a><ul>
+<li><a href="#reglas-de-herencia-en-java"><strong>Reglas de herencia en Java</strong></a></li>
+</ul>
+</li>
+<li><a href="#casting-de-objetos"><strong>Casting de objetos</strong></a></li>
+</ul>
+<h2 id="que-es-la-herencia">Que es la herencia ?<a class="headerlink" href="#que-es-la-herencia" title="Permanent link">&para;</a></h2>
+<p>La <strong>herencia</strong> es un concepto fundamental en la <strong>programación orientada a objetos</strong> que 
+nos permite crear nuevas clases basadas en clases existentes. En Java, la herencia 
+es una característica poderosa que facilita la reutilización de código y la organización 
+de nuestros programas.</p>
+<p>La herencia en Java es un mecanismo que permite que una clase adquiera propiedades y 
+comportamientos (campos y métodos) de otra clase. La <strong>clase padre</strong>(superclase) es la clase cuyas
+propiedades y comportamientos se heredan, y la <strong>clase hija</strong>(subclase) es la clase que hereda. </p>
+<h3 id="por-que-usar-herencia">Por que usar herencia ?<a class="headerlink" href="#por-que-usar-herencia" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La herencia permite <strong>reutilizar código</strong>. El código de la superclase es común a las subclases, por lo que no es necesario volver a escribirlo en cada subclase.
+Las clases hijas usan el código de la clase padre heredando sus métodos y atributos.</li>
+<li>La herencia permite <strong>extender el código</strong>. Podemos agregar nuevos métodos y atributos a la clase hija sin afectar a la clase padre.</li>
+<li>Podemos <strong>sobreescribir los métodos</strong> de la clase padre en la clase hija para cambiar su comportamiento.</li>
+</ul>
+<h2 id="tipos-de-herencia">Tipos de herencia<a class="headerlink" href="#tipos-de-herencia" title="Permanent link">&para;</a></h2>
+<h3 id="herencia-simple-o-single-inheritance">Herencia simple o single inheritance<a class="headerlink" href="#herencia-simple-o-single-inheritance" title="Permanent link">&para;</a></h3>
+<p><img alt="Herencia simple" src="https://miro.medium.com/v2/resize:fit:558/format:webp/1*tiWlegYWK335l_yDJLwjgw.png" />
+La <code>clase B</code> es una subclase de la <code>clase A</code> si la <code>clase B</code> extiende la <code>clase A</code>.  Una clase hija puede heredar de una sola clase padre. Es la herencia más común.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Padre</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase padre</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Hijo</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Padre</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase hija</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="herencia-multinivel-o-multilevel-inheritance">Herencia multinivel o multilevel inheritance<a class="headerlink" href="#herencia-multinivel-o-multilevel-inheritance" title="Permanent link">&para;</a></h3>
+<p><img alt="Herencia multinivel" src="https://miro.medium.com/v2/resize:fit:468/format:webp/1*oyUS1L9ShlkWZmENfVQJmg.png" /></p>
+<p>Una clase puede heredar de una clase que a su vez hereda de otra clase. Es decir, una clase hija puede ser la clase padre de otra clase. </p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase A</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase B</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">C</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase C</span>
+<span class="p">}</span>
+</code></pre></div>
+La <code>clase C</code> hereda de la <code>clase B</code> que a su vez hereda de la <code>clase A</code>. La <code>clase C</code> hereda todos los atributos y métodos de la <code>clase B</code> y la <code>clase A</code>.</p>
+<h3 id="herencia-jerarquica-o-hierarchical-inheritance">Herencia jerárquica o hierarchical inheritance<a class="headerlink" href="#herencia-jerarquica-o-hierarchical-inheritance" title="Permanent link">&para;</a></h3>
+<p><img alt="Herencia jerárquica" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*mFxgt1R-THhRdyKt4ZMH6A.png" /></p>
+<p>Una clase puede tener más de una subclase. Es decir, una clase padre puede tener más de una clase hija. </p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase A</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase B</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">C</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase C</span>
+<span class="p">}</span>
+</code></pre></div>
+La <code>clase A</code> es la clase padre de la <code>clase B</code> y la <code>clase C</code>. La <code>clase B</code> y la <code>clase C</code> heredan todos los atributos y métodos de la <code>clase A</code>.</p>
+<h3 id="herencia-multiple-o-multiple-inheritance">Herencia múltiple o multiple inheritance<a class="headerlink" href="#herencia-multiple-o-multiple-inheritance" title="Permanent link">&para;</a></h3>
+<p><img alt="Herencia múltiple" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*4JFfAofGp7s6DtYRCr-0_g.png" /></p>
+<p>Una clase puede heredar de más de una clase. Es decir, una clase hija puede tener más de una clase padre. <strong>En Java NO se permite la herencia multiple</strong>. Se puede simular usando interfaces. </p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span> <span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">C</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+Se puede usar la herencia multiple en lenguajes como C++, pero no en Java.</p>
+<h2 id="herencia-en-java">Herencia en Java<a class="headerlink" href="#herencia-en-java" title="Permanent link">&para;</a></h2>
+<p>En Java, la herencia se implementa usando la palabra clave <code>extends</code>. La sintaxis es la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase Animal</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Perro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Atributos y métodos de la clase Perro</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>La <code>clase Perro</code> hereda de la <code>clase Animal</code>. La <code>clase Animal</code> es la clase padre de la <code>clase Perro</code>. La <code>clase Perro</code> es la clase hija de la <code>clase Animal</code>. Un objeto <code>Perro</code> es también un objeto <code>Animal</code>.</p>
+<h3 id="reglas-de-herencia-en-java">Reglas de herencia en Java<a class="headerlink" href="#reglas-de-herencia-en-java" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La herencia multiple no está permitida en Java. Una clase puede heredar de una sola clase.</li>
+<li>La herencia ciclica no está permitida en Java. Una clase no puede heredar de si misma.</li>
+<li>Los <strong>atributos y métodos privados no se heredan</strong>. </li>
+<li>Los <strong>constructores no se heredan</strong>. Sin embargo, el constructor de la clase padre se invoca desde el constructor de la clase hija usando la palabra clave <code>super()</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Clase padre</span>
+<span class="kd">class</span> <span class="nc">Figura</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Clase hija</span>
+<span class="kd">class</span> <span class="nc">Circulo</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Figura</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radio</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Circulo</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radio</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">radio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radio</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getRadio</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">radio</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radio</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radio</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Circulo</span><span class="w"> </span><span class="n">miCirculo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Circulo</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Podemos llamar al método heredado calcularArea() desde la subclase</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">areaDelCirculo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">miCirculo</span><span class="p">.</span><span class="na">calcularArea</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// También podemos acceder a los métodos específicos de la subclase</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">radioDelCirculo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">miCirculo</span><span class="p">.</span><span class="na">obtenerRadio</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Área del círculo: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">areaDelCirculo</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Radio del círculo: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">radioDelCirculo</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sobreescritura-de-metodos">Sobreescritura de métodos<a class="headerlink" href="#sobreescritura-de-metodos" title="Permanent link">&para;</a></h3>
+<p>La <strong>sobreescritura de métodos</strong> es una característica de la programación orientada a objetos que nos permite cambiar la implementación de un método en la clase hija que ya existe en la clase padre. La <strong>sobreescritura de métodos</strong> se usa para lograr el <strong>polimorfismo</strong>.</p>
+<p>La clase hija sobreescribe o redefine el método de la clase padre. La clase hija puede sobreescribir un método de la clase padre si el método de la clase padre es <code>public</code> o <code>protected</code>. No se puede sobreescribir un método de la clase padre si el método de la clase padre es <code>private</code>.
+Es buena práctica usar la anotación <code>@Override</code> para indicar que el método está sobrescrito.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;El animal habla&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;El gato maúlla&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="this-y-super"><code>this</code> y <code>super</code><a class="headerlink" href="#this-y-super" title="Permanent link">&para;</a></h3>
+<p>La palabra clave <code>this</code> se usa para hacer referencia a la instancia actual de la clase. La palabra clave <code>super</code> se usa para hacer referencia a la instancia de la clase padre. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Parent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Parent</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Valor del padre: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Child</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Child</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">parentValue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">childValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">(</span><span class="n">parentValue</span><span class="p">);</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">childValue</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Valor del hijo: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">display</span><span class="p">();</span><span class="w"> </span><span class="c1">// método display del adre</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Con <code>super()</code> podemos llamar al constructor de la clase padre desde el constructor de la clase hija.</p>
+<h2 id="casting-de-objetos">Casting de objetos<a class="headerlink" href="#casting-de-objetos" title="Permanent link">&para;</a></h2>
+<p><img alt="Casting de objetos" src="https://media.geeksforgeeks.org/wp-content/uploads/20210119153952/Downcasting.jpg" /></p>
+<p>El casting de objetos es la conversión de un tipo de objeto a otro. En Java, el casting de objetos se puede dividir en dos tipos:
+- <strong>Upcasting</strong>: convertir un objeto de una subclase a un objeto de la superclase. Se puede hacer de forma implícita o explícita.
+<div class="highlight"><pre><span></span><code><span class="n">Parent</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Child</span><span class="p">();</span><span class="w"> </span>
+</code></pre></div>
+En el ejemplo anterior <code>p</code> es una referencia de la clase padre que apunta a un objeto de la clase hija. La referencia <code>p</code> puede acceder a los métodos y atributos de la clase padre y <strong>solamente los métodos sobrescritos de la clase hija</strong>.</p>
+<ul>
+<li><strong>Downcasting</strong>: convertir un objeto de una superclase a un objeto de la subclase. No puede ser implícito. Provoca una excepción <code>ClassCastException</code> si no se usa <code>instanceof</code>.
+<div class="highlight"><pre><span></span><code><span class="n">Child</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Child</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+En el código anterior <code>p</code> es una referencia a la clase padre que apunta a un objeto de la clase hija. Estamos convirtiendo el objeto de la clase padre en un objeto de la clase hija. La referencia <code>c</code> puede acceder a todos los métodos y atributos de la clase padre y de la clase hija.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Parent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Parent show method is called&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span>
+
+<span class="kd">class</span> <span class="nc">Child</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Child show method is called&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Upcasting</span>
+<span class="w">        </span><span class="n">Parent</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Child</span><span class="p">();</span>
+<span class="w">        </span><span class="n">parent</span><span class="p">.</span><span class="na">show</span><span class="p">();</span><span class="w"> </span><span class="c1">// Child show method is called</span>
+
+<span class="w">        </span><span class="c1">// Downcasting</span>
+<span class="w">        </span><span class="n">Child</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Child</span><span class="p">)</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<span class="w">        </span><span class="n">child</span><span class="p">.</span><span class="na">show</span><span class="p">();</span><span class="w"> </span><span class="c1">// Child show method is called</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
